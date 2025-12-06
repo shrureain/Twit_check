@@ -1,4 +1,9 @@
-from typing import List
+from typing import List, TYPE_CHECKING
+if TYPE_CHECKING:
+    # Help type checkers / language servers resolve the optional dependency
+    # without executing the import at runtime (which may fail on some Pythons).
+    # The runtime code still performs a guarded import and CLI fallback.
+    import snscrape.modules.twitter as sntwitter  # type: ignore
 import pandas as pd
 
 
